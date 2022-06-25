@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EldenDB"
+             x:Class="EldenDB.WeaponDetailView"
+             x:DataType="local:WeaponDetailVM"
+             Title="WeaponDetails"
+             BackgroundColor="White">
+    <Grid BackgroundColor="Wheat">
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+        </Grid.Resources>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Weapon.Image}" HeightRequest="120" Grid.RowSpan="10" Grid.Column="3"/>
+                <Label Text="Name:" Grid.Column="0" Grid.Row="0"/>
+                <Label Text="Type:" Grid.Column="0" Grid.Row="1"/>
+                <Label Text="Weight:" Grid.Column="0" Grid.Row="2"/>
+
+                <Label Text="{Binding Weapon.Name}" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="{Binding Weapon.WeaponCategory}" Grid.Column="1" Grid.Row="1"/>
+                <Label Text="{Binding Weapon.Weight}" Grid.Column="1" Grid.Row="2"/>
+                <Image BackgroundColor="Black" Grid.Row="3" Grid.ColumnSpan="10"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+
+                    <RowDefinition Height="10"/>
+
+                    <RowDefinition Height="54"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+
+                    <RowDefinition Height="10"/>
+
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Weapon.Image}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
+                <Label FontSize="20" FontAttributes="Bold" Text="Attack Power" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+                <Label FontSize="20" FontAttributes="Bold" Text="Guarded Damage Negation" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
+                <Label FontSize="20" FontAttributes="Bold" Text="Attribute Scaling" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Label FontSize="20" FontAttributes="Bold" Text="Attributes Required" Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2"/>
+
+                <!--Damage labels-->
+                <Label Text="Physical:" Grid.Row="3" Grid.Column="0"/>
+                <Label Text="Magical:" Grid.Row="4" Grid.Column="0"/>
+                <Label Text="Fire:" Grid.Row="5" Grid.Column="0"/>
+                <Label Text="Lightning:" Grid.Row="6" Grid.Column="0"/>
+                <Label Text="Holy:" Grid.Row="7" Grid.Column="0"/>
+                <Label Text="Critical:" Grid.Row="8" Grid.Column="0"/>
+
+                <Label Text="{Binding Weapon.PhysicalDmg}" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="{Binding Weapon.MagicDmg}" Grid.Row="4" Grid.Column="1"/>
+                <Label Text="{Binding Weapon.FireDmg}" Grid.Row="5" Grid.Column="1"/>
+                <Label Text="{Binding Weapon.LightningDmg}" Grid.Row="6" Grid.Column="1"/>
+                <Label Text="{Binding Weapon.HolyDmg}" Grid.Row="7" Grid.Column="1"/>
+                <Label Text="{Binding Weapon.CriticalDmg}" Grid.Row="8" Grid.Column="1"/>
+
+                <!--Defense labels-->
+                <Label Text="Physical:" Grid.Row="3" Grid.Column="2"/>
+                <Label Text="Magical:" Grid.Row="4" Grid.Column="2"/>
+                <Label Text="Fire:" Grid.Row="5" Grid.Column="2"/>
+                <Label Text="Lightning:" Grid.Row="6" Grid.Column="2"/>
+                <Label Text="Holy:" Grid.Row="7" Grid.Column="2"/>
+                <Label Text="Guard Boost:" Grid.Row="8" Grid.Column="2"/>
+
+                <Label Text="{Binding Weapon.PhysicalGuard}" Grid.Row="3" Grid.Column="3"/>
+                <Label Text="{Binding Weapon.MagicGuard}" Grid.Row="4" Grid.Column="3"/>
+                <Label Text="{Binding Weapon.FireGuard}" Grid.Row="5" Grid.Column="3"/>
+                <Label Text="{Binding Weapon.LightningGuard}" Grid.Row="6" Grid.Column="3"/>
+                <Label Text="{Binding Weapon.HolyGuard}" Grid.Row="7" Grid.Column="3"/>
+                <Label Text="{Binding Weapon.GuardBoost}" Grid.Row="8" Grid.Column="3"/>
+
+                <!--Scaling labels-->
+                <Label Text="Str:" Grid.Row="11" Grid.Column="0"/>
+                <Label Text="Dex:" Grid.Row="12" Grid.Column="0"/>
+                <Label Text="Int:" Grid.Row="13" Grid.Column="0"/>
+                <Label Text="Fai:" Grid.Row="14" Grid.Column="0"/>
+                <Label Text="Arc:" Grid.Row="15" Grid.Column="0"/>
+
+                <Label Text="{Binding Weapon.StrScaling}" Grid.Row="11" Grid.Column="1"/>
+                <Label Text="{Binding Weapon.DexScaling}" Grid.Row="12" Grid.Column="1"/>
+                <Label Text="{Binding Weapon.IntScaling}" Grid.Row="13" Grid.Column="1"/>
+                <Label Text="{Binding Weapon.FaithScaling}" Grid.Row="14" Grid.Column="1"/>
+                <Label Text="{Binding Weapon.ArcaneScaling}" Grid.Row="15" Grid.Column="1"/>
+
+                <!--Required Attributes labels-->
+                <Label Text="Str:" Grid.Row="11" Grid.Column="2"/>
+                <Label Text="Dex:" Grid.Row="12" Grid.Column="2"/>
+                <Label Text="Int:" Grid.Row="13" Grid.Column="2"/>
+                <Label Text="Fai:" Grid.Row="14" Grid.Column="2"/>
+                <Label Text="Arc:" Grid.Row="15" Grid.Column="2"/>
+
+                <Label Text="{Binding Weapon.RequiredStr}" Grid.Row="11" Grid.Column="3"/>
+                <Label Text="{Binding Weapon.RequiredDex}" Grid.Row="12" Grid.Column="3"/>
+                <Label Text="{Binding Weapon.RequiredInt}" Grid.Row="13" Grid.Column="3"/>
+                <Label Text="{Binding Weapon.RequiredFaith}" Grid.Row="14" Grid.Column="3"/>
+                <Label Text="{Binding Weapon.RequiredArcane}" Grid.Row="15" Grid.Column="3"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

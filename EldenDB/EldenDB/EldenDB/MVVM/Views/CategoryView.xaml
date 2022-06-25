@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:EldenDB.MVVM.Models"
+             xmlns:local="clr-namespace:EldenDB"
+             x:Class="EldenDB.CategoryView"
+             x:DataType="local:CategoryViewVM"
+             Title="{Binding Category}"
+             BackgroundColor="White">
+    <Grid>
+        <Image Source="eldenringicon.png" Aspect="AspectFill"/>
+        <ScrollView HorizontalScrollBarVisibility="Always">
+            <ScrollView.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <SearchBar Text="{Binding SearchText}" BackgroundColor="Transparent" Grid.Row="0" IsTextPredictionEnabled="True" />
+                    <CollectionView ItemsSource="{Binding CurrentCategoryWeapons}" SelectedItem="{Binding SelectedWeapon}" 
+                                        SelectionChangedCommand="{Binding SelectionChangedCommand}" SelectionMode="Single" Grid.Row="1">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:Weapon">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="1"/>
+                                    </Grid.RowDefinitions>
+                                    <Rectangle Fill="#40555555" Grid.Row="1" HeightRequest="120" WidthRequest="125" HorizontalOptions="Center" RadiusX="10" RadiusY="10"/>
+                                    <Image Source="{Binding Image}" Grid.Row="1" HorizontalOptions="Center" HeightRequest="120" WidthRequest="100"/>
+                                    <Label Text="{Binding Name}" TextColor="Black" Grid.Row="0" FontSize="20"
+                                           HorizontalOptions="Center" BackgroundColor="Wheat" VerticalTextAlignment="Center" 
+                                           HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                                    <Image BackgroundColor="White" Grid.Row="2"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </ScrollView.Content>
+        </ScrollView>
+    </Grid>
+</ContentPage>

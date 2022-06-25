@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:EldenDB.MVVM.Models"
+             xmlns:local="clr-namespace:EldenDB"
+             x:Class="EldenDB.DBMainPage"
+             Title="Main Page"
+             x:DataType="local:DBMainPageVM"
+             BackgroundColor="White">
+    <Grid>
+        <Image Source="eldenringicon.png" Aspect="AspectFill"/>
+        <StackLayout>
+            <ScrollView Background="eldenringicon.png">
+                <Grid>
+                    <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Button ImageSource="https://eldenring.fanapis.com/images/weapons/17f69987c03l0i1pdyutp139wmu1sh.png" 
+                             HorizontalOptions="CenterAndExpand" VerticalOptions="Center" BorderColor="Black" Scale="3"
+                                     Grid.Row="1" Command="{Binding GoToCategoryViewCommand}" BackgroundColor="Transparent"/>
+                    <Label Text="Weapons" TextColor="Black" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" 
+                           BackgroundColor="Transparent" FontAttributes="Bold" Grid.Row="2"/>
+                </Grid>
+             </ScrollView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

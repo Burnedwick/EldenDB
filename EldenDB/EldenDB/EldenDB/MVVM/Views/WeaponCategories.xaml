@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:EldenDB.MVVM.Models"
+             xmlns:local="clr-namespace:EldenDB"
+             x:Class="EldenDB.WeaponCategories"
+             x:DataType="local:WeaponCategoriesVM"
+             Title="WeaponCategories"
+             BackgroundColor="White">
+    <Grid>
+        <Image Source="eldenringicon.png" Aspect="AspectFill"/>
+        <ScrollView HorizontalScrollBarVisibility="Always">
+            <ScrollView.Content>
+                <CollectionView ItemsSource="{Binding Weapons}" SelectedItem="{Binding SelectedWeapon}" 
+                                SelectionChangedCommand="{Binding SelectionChangedCommand}" SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Weapon">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="1"/>
+                                </Grid.RowDefinitions>
+
+                                <Rectangle Fill="#40555555" Grid.Row="1" HeightRequest="120" WidthRequest="125" HorizontalOptions="Center" RadiusX="10" RadiusY="10"/>
+                                <Image Source="{Binding Image}" Grid.Row="1" HorizontalOptions="Center" HeightRequest="120" WidthRequest="100"/>
+                                <Label Text="{Binding WeaponCategory}" TextColor="Black" Grid.Row="0" FontSize="20"
+                                       HorizontalOptions="Center" BackgroundColor="Wheat" VerticalTextAlignment="Center" 
+                                       HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                                
+                                <Image BackgroundColor="White" Grid.Row="2"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView.Content>
+        </ScrollView>
+    </Grid>
+</ContentPage>
