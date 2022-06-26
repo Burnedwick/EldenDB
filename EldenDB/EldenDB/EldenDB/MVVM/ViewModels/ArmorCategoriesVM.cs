@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EldenDB.Services
+namespace EldenDB
 {
-    internal class DBSearchHandler
+    public class ArmorCategoriesVM
     {
+
     }
 }

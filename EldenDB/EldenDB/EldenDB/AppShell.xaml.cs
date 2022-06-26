@@ -12,5 +12,6 @@ public partial class AppShell : Shell
 		Routing.RegisterRoute(nameof(WeaponCategories), typeof(WeaponCategories));
 		Routing.RegisterRoute(nameof(WeaponDetailView), typeof(WeaponDetailView));
 		Routing.RegisterRoute(nameof(CategoryView), typeof(CategoryView));
+		Routing.RegisterRoute(nameof(ArmorCategories), typeof(ArmorCategories));
 	}
 }

@@ -13,15 +13,23 @@
             <ScrollView Background="eldenringicon.png">
                 <Grid>
                     <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
                     <RowDefinition Height="150"/>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="150"/>
                     <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
                     <Button ImageSource="https://eldenring.fanapis.com/images/weapons/17f69987c03l0i1pdyutp139wmu1sh.png" 
-                             HorizontalOptions="CenterAndExpand" VerticalOptions="Center" BorderColor="Black" Scale="3"
-                                     Grid.Row="1" Command="{Binding GoToCategoryViewCommand}" BackgroundColor="Transparent"/>
+                             HorizontalOptions="CenterAndExpand" VerticalOptions="Center" BorderColor="Black" Scale="2.5"
+                                     Grid.Row="1" Command="{Binding GoToWeaponViewCommand}" BackgroundColor="Transparent"/>
                     <Label Text="Weapons" TextColor="Black" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" 
                            BackgroundColor="Transparent" FontAttributes="Bold" Grid.Row="2"/>
+                    <Button ImageSource="https://eldenring.fanapis.com/images/armors/17f69515b49l0i0nbno079cqzlskebf.png" 
+                             HorizontalOptions="CenterAndExpand" VerticalOptions="Center" BorderColor="Black" Scale="2"
+                                     Grid.Row="4" Command="{Binding GoToArmorViewCommand}" BackgroundColor="Transparent"/>
+                    <Label Text="Armor" TextColor="Black" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" 
+                           BackgroundColor="Transparent" FontAttributes="Bold" Grid.Row="5"/>
                 </Grid>
              </ScrollView>
         </StackLayout>

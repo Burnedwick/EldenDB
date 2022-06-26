@@ -29,6 +29,9 @@ public static class MauiProgram
 		builder.Services.AddTransient<CategoryView>();
 		builder.Services.AddTransient<CategoryViewVM>();
 
+		builder.Services.AddTransient<ArmorCategories>();
+		builder.Services.AddTransient<ArmorCategoriesVM>();
+
 		return builder.Build();
 	}
 }

@@ -9,7 +9,6 @@ namespace EldenDB
 {
     public static class ExtensionMethods
     {
-        //Finish writing the converter
         public static Weapon ConvertFromDatumToWeapon(this EldenAPIComm.WeaponEndpoint.Datum datum)
         {
             string StrScaling = "None";
@@ -100,6 +99,46 @@ namespace EldenDB
             LightningGuard = datum.defence[3].amount,
             HolyGuard = datum.defence[4].amount,
             GuardBoost = datum.defence[5].amount,
+            };
+        }
+        public static Armor ConvertFromDatumToArmor(this EldenAPIComm.ArmorEndpoint.Datum datum)
+        {
+            return new Armor()
+            {
+                Phy = datum.dmgNegation[0].name,
+                PhyNeg = datum.dmgNegation[0].amount,
+                Strike = datum.dmgNegation[1].name,
+                StrikeNeg = datum.dmgNegation[1].amount,
+                Slash = datum.dmgNegation[2].name,
+                SlashNeg = datum.dmgNegation[2].amount,
+                Pierce = datum.dmgNegation[3].name,
+                PierceNeg = datum.dmgNegation[3].amount,
+                Magic = datum.dmgNegation[4].name,
+                MagicNeg = datum.dmgNegation[4].amount,
+                Fire = datum.dmgNegation[5].name,
+                FireNeg = datum.dmgNegation[5].amount,
+                Ligt = datum.dmgNegation[6].name,
+                LigtNeg = datum.dmgNegation[6].amount,
+                Holy = datum.dmgNegation[7].name,
+                HolyNeg = datum.dmgNegation[7].amount,
+
+                Immunity = datum.resistance[0].name,
+                ImmunityNeg = datum.resistance[0].amount,
+                Robustness = datum.resistance[1].name,
+                RobustnessNeg = datum.resistance[1].amount,
+                Focus = datum.resistance[2].name,
+                FocusNeg = datum.resistance[2].amount,
+                Vitality = datum.resistance[3].name,
+                VitalityNeg = datum.resistance[3].amount,
+                Poise = datum.resistance[4].name,
+                PoiseAmt = datum.resistance[4].amount,
+
+                Category = datum.category,
+                Description = datum.description,
+                ID = datum.id,
+                Image = datum.image,
+                Name = datum.name,
+                Weight = datum.weight,
             };
         }
     }
