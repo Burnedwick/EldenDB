@@ -9,6 +9,7 @@ namespace EldenDB
     public class DBData
     {
         public List<EldenAPIComm.WeaponEndpoint.Datum> WeaponList { get; set; }
+        public List<EldenAPIComm.ArmorEndpoint.Datum> ArmorList { get; set; }
         public string Category { get; set; }
     }
 }
