@@ -1,0 +1,13 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:EldenDB.MVVM.Models"
+             xmlns:local="clr-namespace:EldenDB"
+             x:Class="EldenDB.ArmorCategoryView"
+             x:DataType="local:ArmorCategoryViewVM"
+             Title="Armors"
+             BackgroundColor="White">
+
+    <StackLayout>
+        <Label Text="Hello"/>
+    </StackLayout>
+</ContentPage>

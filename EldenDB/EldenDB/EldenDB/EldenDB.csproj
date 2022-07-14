@@ -73,6 +73,9 @@
 	  <MauiXaml Update="MVVM\Views\ArmorCategories.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\ArmorCategoryView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\CategoryView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

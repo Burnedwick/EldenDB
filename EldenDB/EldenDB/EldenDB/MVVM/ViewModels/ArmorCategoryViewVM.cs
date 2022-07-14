@@ -1,47 +1,48 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.Input;
+using EldenAPIComm;
 using EldenDB.MVVM.Models;
+using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace EldenDB
 {
-    public partial class CategoryViewVM : ObservableObject
+    public partial class ArmorCategoryViewVM : ObservableObject
     {
-        public ObservableCollection<Weapon> CurrentCategoryWeapons { get; } = new();
+        public ObservableCollection<Armor> CurrentCategoryArmors { get; } = new();
         [ObservableProperty]
         private string category;
         [ObservableProperty]
-        private Weapon selectedWeapon;
+        private Armor selectedArmor;
         [ObservableProperty]
         private string searchText;
         [ICommand]
         private async void SelectionChanged()
         {
-            if (selectedWeapon != null)
+            if (selectedArmor != null)
             {
                 await Shell.Current.GoToAsync(nameof(WeaponDetailView), true,
                     new Dictionary<string, object>()
                     {
-                        {"Weapon", selectedWeapon},
+                        {"Armor", selectedArmor},
                     });
-                SelectedWeapon = null;
+                SelectedArmor = null;
             }
         }
         //Find all entries that match the category navigated to and instantiate the public observable list with them.
         private DBData data;
-        public CategoryViewVM(DBData DBdata)
+        public ArmorCategoryViewVM(DBData DBdata)
         {
             this.data = DBdata;
             Category = DBdata.Category;
-            IEnumerable<EldenAPIComm.WeaponEndpoint.Datum> matches = data.WeaponList.Where(el => el.category == category);
-            foreach (EldenAPIComm.WeaponEndpoint.Datum d in matches)
+            IEnumerable<EldenAPIComm.ArmorEndpoint.Datum> matches = data.ArmorList.Where(el => el.category == category);
+            foreach (EldenAPIComm.ArmorEndpoint.Datum d in matches)
             {
-                CurrentCategoryWeapons.Add(d.ConvertFromDatumToWeapon());
+                CurrentCategoryArmors.Add(d.ConvertFromDatumToArmor());
             }
         }
     }
