@@ -5,32 +5,35 @@
              xmlns:local="clr-namespace:EldenDB"
              x:Class="EldenDB.ArmorCategories"
              x:DataType="local:ArmorCategoriesVM"
-             Title="ArmorCategories"
+             Title="Armor Categories"
              BackgroundColor="White">
     <StackLayout>
-        <Grid>
-            <Image Source="eldenringicon.png" Aspect="AspectFill"/>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="60"/>
-                </Grid.RowDefinitions>
-                <Label Text="Helmets" FontSize="30" FontAttributes="Bold" TextColor="Black" Grid.Row="2" HorizontalOptions="Center" Grid.RowSpan="2" VerticalTextAlignment="Start"/>
-                <Label Text="Chest Armor" FontSize="30" FontAttributes="Bold" TextColor="Black" Grid.Row="4" HorizontalOptions="Center" Grid.RowSpan="2" VerticalTextAlignment="Start"/>
-                <Label Text="Gauntlets" FontSize="30" FontAttributes="Bold" TextColor="Black" Grid.Row="6" HorizontalOptions="Center" Grid.RowSpan="2" VerticalTextAlignment="Start"/>
-                <Label Text="Grieves" FontSize="30" FontAttributes="Bold" TextColor="Black" Grid.Row="8" HorizontalOptions="Center" Grid.RowSpan="2" VerticalTextAlignment="Start"/>
-                <Button ImageSource="https://eldenring.fanapis.com/images/armors/17f69751613l0i0nbp9nsdqjza4rxf.png" Grid.Row="1" BackgroundColor="Transparent" VerticalOptions="End" Scale="1.3"/>
-                <Button ImageSource="https://eldenring.fanapis.com/images/armors/17f69515b49l0i0nbno079cqzlskebf.png" Grid.Row="3" BackgroundColor="Transparent" VerticalOptions="End" Scale="1.3"/>
-                <Button ImageSource="https://eldenring.fanapis.com/images/armors/17f6984f152l0i0nc38cztqhxqc6rw.png" Grid.Row="5" BackgroundColor="Transparent" VerticalOptions="End" Scale="1.3"/>
-                <Button ImageSource="https://eldenring.fanapis.com/images/armors/17f696e0685l0i0nblzy58h0qvewk.png" Grid.Row="7" BackgroundColor="Transparent" VerticalOptions="End" Scale="1.3"/>
-            </Grid>
-        </Grid>
+        <ScrollView>
+            <ScrollView.Content>
+                <Grid>
+                    <Image Source="eldenringicon.png" Aspect="AspectFill"/>
+                    <Grid>
+                        <CollectionView ItemsSource="{Binding Armors}" SelectedItem="{Binding SelectedArmor}" 
+                                SelectionChangedCommand="{Binding SelectionChangedCommand}" SelectionMode="Single">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="models:Armor">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="40"/>
+                                            <RowDefinition Height="175"/>
+                                            <RowDefinition Height="1"/>
+                                        </Grid.RowDefinitions>
+                                        <Rectangle Fill="#40555555" Grid.Row="1" HeightRequest="170" WidthRequest="150" HorizontalOptions="Center" RadiusX="10" RadiusY="10"/>
+                                        <Label Text="{Binding Category}" Grid.Row="0" FontSize="28" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalTextAlignment="Start"/>
+                                        <Image Source="{Binding Image}" Grid.Row="1" BackgroundColor="Transparent" HorizontalOptions="Center" Scale="1.5" VerticalOptions="Fill" AnchorY="1" AnchorX="1"/>
+                                        <Image BackgroundColor="White" Grid.Row="2"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                </Grid>
+            </ScrollView.Content>
+        </ScrollView>
     </StackLayout>
 </ContentPage>

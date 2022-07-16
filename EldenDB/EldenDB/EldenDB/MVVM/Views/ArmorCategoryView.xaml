@@ -8,6 +8,6 @@
              BackgroundColor="White">
 
     <StackLayout>
-        <Label Text="Hello"/>
+        <Label Text="{Binding Category}"/>
     </StackLayout>
 </ContentPage>

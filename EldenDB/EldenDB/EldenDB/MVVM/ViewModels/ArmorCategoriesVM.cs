@@ -36,7 +36,7 @@ namespace EldenDB
             if (selectedArmor != null)
             {
                 data.Category = selectedArmor.Category;
-                await Shell.Current.GoToAsync(nameof(CategoryView), true);
+                await Shell.Current.GoToAsync(nameof(ArmorCategoryView), true);
                 SelectedArmor = null;
             }
         }
@@ -46,6 +46,10 @@ namespace EldenDB
         {
             armorList = await eldenService.GetArmorList();
             data.ArmorList = armorList;
+            Armors.Add(armorList[2].ConvertFromDatumToArmor());
+            Armors.Add(armorList[1].ConvertFromDatumToArmor());
+            Armors.Add(armorList[8].ConvertFromDatumToArmor());
+            Armors.Add(armorList[0].ConvertFromDatumToArmor());
         }
     }
 }

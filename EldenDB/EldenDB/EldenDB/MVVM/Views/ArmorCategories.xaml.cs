@@ -2,8 +2,9 @@ namespace EldenDB;
 
 public partial class ArmorCategories : ContentPage
 {
-	public ArmorCategories()
+	public ArmorCategories(ArmorCategoriesVM armorCategoriesVM)
 	{
 		InitializeComponent();
+		this.BindingContext = armorCategoriesVM;
 	}
 }
